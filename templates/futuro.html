@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Destino ha sido Revelado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="result-page macondo-regular bg-c">
+    <div class="main-container result-container">
+        <!-- ícono de luna/sol -->
+        <div class="moon-icon result-icon">
+            <i class="fas fa-lightbulb"></i>
+        </div>
+
+        <!-- Tí­tulo principal -->
+        <h1 class="title">Tu Destino ha sido Revelado</h1>
+        <p class="subtitle">Las estrellas han hablado, {{ nombre }}</p>
+
+        <!-- Tarjeta de predicción principal -->
+        <div class="prediction-card-main">
+            <div class="prediction-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="prediction-text-main">
+                {{ prediccion | safe }}
+            </div>
+        </div>
+
+        <!-- Grid de información personal -->
+        <div class="info-grid-result">
+            <!-- Tu color -->
+            <div class="info-item-result">
+                <div class="info-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="info-content">
+                    <div class="info-label-result">Tu Color</div>
+                    <div class="color-display-result">
+                        <div class="color-circle-large" style="background-color: {{ color }};"></div>
+                    </div>
+                    <div class="info-description">Tu preferencia por el color <strong style="color: {{ color }};">{{ color }}</strong> revela tu afinidad con la misterio y descubrimiento.</div>
+                </div>
+            </div>
+
+            <!-- Tu animal -->
+            <div class="info-item-result">
+                <div class="info-icon">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <div class="info-content">
+                    <div class="info-label-result">Tu Animal</div>
+                    <div class="animal-display">
+                        <span class="animal-emoji">🔮</span>
+                    </div>
+                    <div class="info-description">Tu conexión con el <strong>{{ animal }}</strong> simboliza tu naturaleza de independencia y misterio.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Número de la suerte con esfera 3D -->
+        <div class="lucky-section">
+            <h2 class="lucky-title">Tu número de la suerte</h2>
+            <div class="mystical-ball">
+                <div class="lucky-number">{{ numero }}</div>
+            </div>
+            <p class="lucky-description">Este número te acompañará en momentos importantes.</p>
+        </div>
+
+        <!-- Información adicional -->
+        <div class="additional-info">
+            <p class="age-info">
+                <i class="fas fa-calendar-alt"></i>
+                A tus <strong>{{ year }}</strong> años, estás en un momento favorable para aprovechar nuevas oportunidades.
+            </p>
+        </div>
+
+        <!-- Botán para consultar de nuevo -->
+        <div class="mt-4">
+            <a href="{{ url_for('mostrar_formulario') }}" class="btn btn-reveal-again">
+                <i class="fas fa-redo-alt"></i> Consultar de nuevo
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-text">
+            Las estrellas te han hablado hoy: {{ nombre }}.
+        </div>
+    </div>
+</body>
+</html>
